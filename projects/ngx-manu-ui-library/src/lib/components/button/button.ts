@@ -1,7 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 
-type Severity = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'warning' | 'success';
+type ButtonSeverity = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'warning' | 'success';
+type ButtonType = 'button' | 'submit' | 'reset';
+type ButtonSize = 'small' | 'large';
 
 @Component({
     selector: 'lib-button',
@@ -11,8 +13,9 @@ type Severity = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'warning' | 's
 })
 export class Button {
     label = input<string>('');
-    severity = input<Severity>('primary');
-    size = input<'small' | 'large'>('small');
+    type = input<ButtonType>('button');
+    severity = input<ButtonSeverity>('primary');
+    size = input<ButtonSize>('small');
 
     handleClick = output<void>();
 }

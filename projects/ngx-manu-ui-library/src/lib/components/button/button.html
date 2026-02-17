@@ -1,3 +1,7 @@
-<button [ngClass]="['button', severity(), size()]" (click)="handleClick.emit()">
+<button
+    [ngClass]="['button', severity(), size()]"
+    [type]="type()"
+    (click)="handleClick.emit()"
+>
     {{ label() }}
 </button>

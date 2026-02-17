@@ -28,16 +28,19 @@ describe('Button', () => {
 
     it('should have default values', () => {
         expect(component.label()).toBe('');
+        expect(component.type()).toBe('button');
         expect(component.severity()).toBe('primary');
         expect(component.size()).toBe('small');
     });
 
     it('should update values', () => {
         fixture.componentRef.setInput('label', 'Test Button');
+        fixture.componentRef.setInput('type', 'submit');
         fixture.componentRef.setInput('severity', 'danger');
         fixture.componentRef.setInput('size', 'large');
 
         expect(component.label()).toBe('Test Button');
+        expect(component.type()).toBe('submit');
         expect(component.severity()).toBe('danger');
         expect(component.size()).toBe('large');
     });

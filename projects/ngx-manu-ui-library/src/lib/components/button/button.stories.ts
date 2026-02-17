@@ -12,6 +12,10 @@ const meta: Meta<Button> = {
         label: 'Button'
     },
     argTypes: {
+        type: {
+            control: 'select',
+            options: ['button', 'submit', 'reset'],
+        },
         severity: {
             control: 'select',
             options: ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success'],
@@ -32,6 +36,7 @@ export const Primary: Story = {
         label: 'Primary',
         severity: 'primary',
         size: 'small',
+        type: 'button'
     },
 };
 
@@ -40,6 +45,7 @@ export const Secondary: Story = {
         label: 'Secondary',
         severity: 'secondary',
         size: 'small',
+        type: 'button'
     },
 };
 
@@ -48,6 +54,7 @@ export const Tertiary: Story = {
         label: 'Tertiary',
         severity: 'tertiary',
         size: 'small',
+        type: 'button'
     },
 };
 
@@ -56,6 +63,7 @@ export const Danger: Story = {
         label: 'Danger',
         severity: 'danger',
         size: 'small',
+        type: 'button'
     },
 };
 
@@ -64,6 +72,7 @@ export const Warning: Story = {
         label: 'Warning',
         severity: 'warning',
         size: 'small',
+        type: 'button'
     },
 };
 
@@ -72,5 +81,6 @@ export const Success: Story = {
         label: 'Success',
         severity: 'success',
         size: 'small',
+        type: 'button'
     },
 };
