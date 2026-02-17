@@ -14,7 +14,14 @@
     "lib:publish": "npm run lib:lint && npm run lib:test && npm run lib:build && npm publish dist/ngx-manu-ui-library",
     "testbed:start": "ng serve ngx-manu-ui-library-testbed-app -o",
     "storybook": "ng run ngx-manu-ui-library:storybook",
-    "build-storybook": "ng run ngx-manu-ui-library:build-storybook"
+    "build-storybook": "ng run ngx-manu-ui-library:build-storybook",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "vitest related --run"
+    ]
   },
   "prettier": {
     "printWidth": 100,
@@ -48,6 +55,8 @@
     "@angular/cli": "^21.1.4",
     "@angular/compiler-cli": "^21.1.0",
     "@angular/platform-browser-dynamic": "^21.1.0",
+    "@commitlint/cli": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.1",
     "@compodoc/compodoc": "^1.2.1",
     "@storybook/addon-a11y": "^10.2.9",
     "@storybook/addon-docs": "^10.2.9",
@@ -55,7 +64,9 @@
     "@storybook/angular": "^10.2.9",
     "angular-eslint": "21.2.0",
     "eslint": "^9.39.2",
+    "husky": "^9.1.7",
     "jsdom": "^27.1.0",
+    "lint-staged": "^16.2.7",
     "ng-packagr": "^21.1.0",
     "storybook": "^10.2.9",
     "typescript": "~5.9.2",
