@@ -1,0 +1,9 @@
+<button
+    class="button"
+    [class.primary]="type() === 'primary'"
+    [class.secondary]="type() === 'secondary'"
+    [class.tertiary]="type() === 'tertiary'"
+    [ngClass]="['btn', size()]"
+>
+    {{ label() }}
+</button>

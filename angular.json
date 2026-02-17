@@ -29,6 +29,36 @@
           "options": {
             "tsConfig": "projects/ngx-manu-ui-library/tsconfig.spec.json"
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/ngx-manu-ui-library/.storybook",
+            "browserTarget": "ngx-manu-ui-library:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/ngx-manu-ui-library"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/ngx-manu-ui-library/.storybook",
+            "browserTarget": "ngx-manu-ui-library:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/ngx-manu-ui-library"
+            ],
+            "outputDir": "storybook-static"
+          }
         }
       }
     }
