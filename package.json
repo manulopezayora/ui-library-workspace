@@ -19,7 +19,9 @@
   },
   "lint-staged": {
     "projects/**/*.{ts,tsx}": [
-      "eslint --fix",
+      "eslint --fix"
+    ],
+    "projects/**/*.spec.ts": [
       "ng test ngx-manu-ui-library --watch=false --include"
     ]
   },

@@ -25,25 +25,25 @@ export default meta;
 type Story = StoryObj<Button>;
 
 export const Primary: Story = {
-  args: {
-    label: 'Primary',
-    type: 'primary',
-    size: 'large',
-  },
+    args: {
+        label: 'Primary',
+        type: 'primary',
+        size: 'large',
+    },
 };
 
 export const Secondary: Story = {
-  args: {
-    label: 'Secondary',
-    type: 'secondary',
-    size: 'small',
-  },
+    args: {
+        label: 'Secondary',
+        type: 'secondary',
+        size: 'small',
+    },
 };
 
 export const Tertiary: Story = {
-  args: {
-    label: 'Tertiary',
-    type: 'tertiary',
-    size: 'small',
-  },
+    args: {
+        label: 'Tertiary',
+        type: 'tertiary',
+        size: 'small',
+    },
 };
