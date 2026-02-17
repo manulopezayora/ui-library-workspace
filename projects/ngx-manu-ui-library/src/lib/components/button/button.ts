@@ -11,8 +11,4 @@ export class Button {
   label = input<string>('');
   type = input<'primary' | 'secondary' | 'tertiary'>('primary');
   size = input<'small' | 'large'>('small');
-
-  constructor() {
-    console.log('test husky');
-  }
 }
