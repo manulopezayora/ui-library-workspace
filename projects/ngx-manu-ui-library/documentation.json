@@ -11,6 +11,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Danger",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n    args: {\n        label: 'Danger',\n        severity: 'danger',\n        size: 'small',\n    },\n}"
+            },
+            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -18,7 +28,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Button>",
-                "defaultValue": "{\n    title: 'Components/Button',\n    component: Button,\n    tags: ['autodocs'],\n    args: {\n        label: 'Button',\n    },\n    argTypes: {\n        type: {\n            control: 'select',\n            options: ['primary', 'secondary', 'tertiary'],\n        },\n        size: {\n            control: 'select',\n            options: ['small', 'large'],\n        },\n    },\n}"
+                "defaultValue": "{\n    title: 'Components/Button',\n    component: Button,\n    tags: ['autodocs'],\n    parameters: {\n        actions: { argTypesRegex: '^on.*|^handle.*' },\n    },\n    args: {\n        label: 'Button'\n    },\n    argTypes: {\n        severity: {\n            control: 'select',\n            options: ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success'],\n        },\n        size: {\n            control: 'select',\n            options: ['small', 'large'],\n        },\n    },\n}"
             },
             {
                 "name": "preview",
@@ -38,7 +48,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Primary',\n    type: 'primary',\n    size: 'large',\n  },\n}"
+                "defaultValue": "{\n    args: {\n        label: 'Primary',\n        severity: 'primary',\n        size: 'small',\n    },\n}"
             },
             {
                 "name": "Secondary",
@@ -48,7 +58,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Secondary',\n    type: 'secondary',\n    size: 'small',\n  },\n}"
+                "defaultValue": "{\n    args: {\n        label: 'Secondary',\n        severity: 'secondary',\n        size: 'small',\n    },\n}"
+            },
+            {
+                "name": "Success",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n    args: {\n        label: 'Success',\n        severity: 'success',\n        size: 'small',\n    },\n}"
             },
             {
                 "name": "Tertiary",
@@ -58,7 +78,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Tertiary',\n    type: 'tertiary',\n    size: 'small',\n  },\n}"
+                "defaultValue": "{\n    args: {\n        label: 'Tertiary',\n        severity: 'tertiary',\n        size: 'small',\n    },\n}"
+            },
+            {
+                "name": "Warning",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n    args: {\n        label: 'Warning',\n        severity: 'warning',\n        size: 'small',\n    },\n}"
             }
         ],
         "functions": [],
@@ -79,6 +109,16 @@
         "groupedVariables": {
             "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts": [
                 {
+                    "name": "Danger",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n    args: {\n        label: 'Danger',\n        severity: 'danger',\n        size: 'small',\n    },\n}"
+                },
+                {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -86,7 +126,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Button>",
-                    "defaultValue": "{\n    title: 'Components/Button',\n    component: Button,\n    tags: ['autodocs'],\n    args: {\n        label: 'Button',\n    },\n    argTypes: {\n        type: {\n            control: 'select',\n            options: ['primary', 'secondary', 'tertiary'],\n        },\n        size: {\n            control: 'select',\n            options: ['small', 'large'],\n        },\n    },\n}"
+                    "defaultValue": "{\n    title: 'Components/Button',\n    component: Button,\n    tags: ['autodocs'],\n    parameters: {\n        actions: { argTypesRegex: '^on.*|^handle.*' },\n    },\n    args: {\n        label: 'Button'\n    },\n    argTypes: {\n        severity: {\n            control: 'select',\n            options: ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success'],\n        },\n        size: {\n            control: 'select',\n            options: ['small', 'large'],\n        },\n    },\n}"
                 },
                 {
                     "name": "Primary",
@@ -96,7 +136,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Primary',\n    type: 'primary',\n    size: 'large',\n  },\n}"
+                    "defaultValue": "{\n    args: {\n        label: 'Primary',\n        severity: 'primary',\n        size: 'small',\n    },\n}"
                 },
                 {
                     "name": "Secondary",
@@ -106,7 +146,17 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Secondary',\n    type: 'secondary',\n    size: 'small',\n  },\n}"
+                    "defaultValue": "{\n    args: {\n        label: 'Secondary',\n        severity: 'secondary',\n        size: 'small',\n    },\n}"
+                },
+                {
+                    "name": "Success",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n    args: {\n        label: 'Success',\n        severity: 'success',\n        size: 'small',\n    },\n}"
                 },
                 {
                     "name": "Tertiary",
@@ -116,7 +166,17 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Tertiary',\n    type: 'tertiary',\n    size: 'small',\n  },\n}"
+                    "defaultValue": "{\n    args: {\n        label: 'Tertiary',\n        severity: 'tertiary',\n        size: 'small',\n    },\n}"
+                },
+                {
+                    "name": "Warning",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n    args: {\n        label: 'Warning',\n        severity: 'warning',\n        size: 'small',\n    },\n}"
                 }
             ],
             "projects/ngx-manu-ui-library/.storybook/preview.ts": [
@@ -174,6 +234,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Danger",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -204,7 +274,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "Success",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Tertiary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Warning",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

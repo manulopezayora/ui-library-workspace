@@ -1,21 +1,57 @@
 .button {
-    padding: 5px 12px;
-    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+.button:active {
+    transform: translateY(0);
 }
 
 .primary {
-    background-color: #333;
-    color: #fff;
+    background-color: #007bff;
+    color: white;
 }
 
 .secondary {
-    background-color: #fff;
-    color: #333;
-    border: none;
+    background-color: #6c757d;
+    color: white;
 }
 
 .tertiary {
-    background-color: #fff;
-    color: #333;
-    border-color: #333;
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.small {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+.large {
+    padding: 0.8rem 1.3rem;
+    font-size: 1.25rem;
 }

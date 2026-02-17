@@ -5,13 +5,16 @@ const meta: Meta<Button> = {
     title: 'Components/Button',
     component: Button,
     tags: ['autodocs'],
+    parameters: {
+        actions: { argTypesRegex: '^on.*|^handle.*' },
+    },
     args: {
-        label: 'Button',
+        label: 'Button'
     },
     argTypes: {
-        type: {
+        severity: {
             control: 'select',
-            options: ['primary', 'secondary', 'tertiary'],
+            options: ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success'],
         },
         size: {
             control: 'select',
@@ -27,15 +30,15 @@ type Story = StoryObj<Button>;
 export const Primary: Story = {
     args: {
         label: 'Primary',
-        type: 'primary',
-        size: 'large',
+        severity: 'primary',
+        size: 'small',
     },
 };
 
 export const Secondary: Story = {
     args: {
         label: 'Secondary',
-        type: 'secondary',
+        severity: 'secondary',
         size: 'small',
     },
 };
@@ -43,7 +46,31 @@ export const Secondary: Story = {
 export const Tertiary: Story = {
     args: {
         label: 'Tertiary',
-        type: 'tertiary',
+        severity: 'tertiary',
+        size: 'small',
+    },
+};
+
+export const Danger: Story = {
+    args: {
+        label: 'Danger',
+        severity: 'danger',
+        size: 'small',
+    },
+};
+
+export const Warning: Story = {
+    args: {
+        label: 'Warning',
+        severity: 'warning',
+        size: 'small',
+    },
+};
+
+export const Success: Story = {
+    args: {
+        label: 'Success',
+        severity: 'success',
         size: 'small',
     },
 };

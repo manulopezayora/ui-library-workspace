@@ -1,5 +1,7 @@
 import { NgClass } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+
+type Severity = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'warning' | 'success';
 
 @Component({
     selector: 'lib-button',
@@ -9,6 +11,8 @@ import { Component, input } from '@angular/core';
 })
 export class Button {
     label = input<string>('');
-    type = input<'primary' | 'secondary' | 'tertiary'>('primary');
+    severity = input<Severity>('primary');
     size = input<'small' | 'large'>('small');
+
+    handleClick = output<void>();
 }
