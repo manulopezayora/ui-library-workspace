@@ -12,6 +12,7 @@
     "lib:test": "ng test ngx-manu-ui-library --watch=false",
     "lib:lint": "ng lint ngx-manu-ui-library",
     "lib:publish": "npm run lib:lint && npm run lib:test && npm run lib:build && npm publish dist/ngx-manu-ui-library",
+    "testbed:start": "ng serve ngx-manu-ui-library-testbed-app -o",
     "storybook": "ng run ngx-manu-ui-library:storybook",
     "build-storybook": "ng run ngx-manu-ui-library:build-storybook"
   },
