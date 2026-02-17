@@ -1,0 +1,21 @@
+.button {
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.primary {
+    background-color: #333;
+    color: #fff;
+}
+
+.secondary {
+    background-color: #fff;
+    color: #333;
+    border: none;
+}
+
+.tertiary {
+    background-color: #fff;
+    color: #333;
+    border-color: #333;
+}

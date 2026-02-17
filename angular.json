@@ -2,7 +2,10 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -28,6 +31,119 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "projects/ngx-manu-ui-library/tsconfig.spec.json"
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/ngx-manu-ui-library/.storybook",
+            "browserTarget": "ngx-manu-ui-library:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/ngx-manu-ui-library"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/ngx-manu-ui-library/.storybook",
+            "browserTarget": "ngx-manu-ui-library:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/ngx-manu-ui-library"
+            ],
+            "outputDir": "storybook-static"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-manu-ui-library/**/*.ts",
+              "projects/ngx-manu-ui-library/**/*.html"
+            ],
+            "eslintConfig": "projects/ngx-manu-ui-library/eslint.config.js"
+          }
+        }
+      }
+    },
+    "ngx-manu-ui-library-testbed-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ngx-manu-ui-library-testbed-app",
+      "sourceRoot": "projects/ngx-manu-ui-library-testbed-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/ngx-manu-ui-library-testbed-app/src/main.ts",
+            "tsConfig": "projects/ngx-manu-ui-library-testbed-app/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/ngx-manu-ui-library-testbed-app/public"
+              }
+            ],
+            "styles": [
+              "projects/ngx-manu-ui-library-testbed-app/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "ngx-manu-ui-library-testbed-app:build:production"
+            },
+            "development": {
+              "buildTarget": "ngx-manu-ui-library-testbed-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-manu-ui-library-testbed-app/**/*.ts",
+              "projects/ngx-manu-ui-library-testbed-app/**/*.html"
+            ],
+            "eslintConfig": "projects/ngx-manu-ui-library-testbed-app/eslint.config.js"
           }
         }
       }
