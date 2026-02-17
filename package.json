@@ -18,9 +18,9 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": [
+    "projects/**/*.{ts,tsx}": [
       "eslint --fix",
-      "vitest related --run"
+      "ng test ngx-manu-ui-library --watch=false --include"
     ]
   },
   "prettier": {
