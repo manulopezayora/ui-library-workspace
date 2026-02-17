@@ -2,7 +2,10 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -58,6 +61,16 @@
               "projects/ngx-manu-ui-library"
             ],
             "outputDir": "storybook-static"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-manu-ui-library/**/*.ts",
+              "projects/ngx-manu-ui-library/**/*.html"
+            ],
+            "eslintConfig": "projects/ngx-manu-ui-library/eslint.config.js"
           }
         }
       }
