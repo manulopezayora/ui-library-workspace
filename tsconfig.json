@@ -10,8 +10,11 @@
     "paths": {
       "ngx-manu-ui-library": [
         "./dist/ngx-manu-ui-library"
-      ]
+      ],
+      "@utils": ["projects/ngx-manu-ui-library/src/lib/utils/index.ts"],
+      "@components": ["projects/ngx-manu-ui-library/src/lib/components/index.ts"],
     },
+    "baseUrl": "./",
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
