@@ -1,15 +1,26 @@
 <div class="input-container">
     @if (label()) {
-        <label [for]="id()">{{ label() }}</label>
+        <label [class.error-text]="isInvalid" [for]="id()">{{ label() }}</label>
     }
+
     <input
+        class="input-field"
+        [class.primary]="fieldStyle() === 'primary'"
+        [class.secondary]="fieldStyle() === 'secondary'"
+        [class.outline]="fieldStyle() === 'outline'"
+        [class.is-invalid]="isInvalid"
         [id]="id()"
         [type]="fieldType()"
         [placeholder]="placeholder()"
-        [value]="value"
-        [disabled]="disabled"
+        [value]="value() || ''"
+        [disabled]="disabled()"
         (input)="onInputChange($event)"
         (blur)="onBlur()"
-        class="input-field"
     />
+
+    @if (isInvalid) {
+        <small class="error-text">
+            {{ errorMessages.join(', ') }}
+        </small>
+    }
 </div>

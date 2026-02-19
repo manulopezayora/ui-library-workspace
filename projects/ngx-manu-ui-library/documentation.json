@@ -18,7 +18,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        label: 'Danger',\n        severity: 'danger',\n        size: 'small',\n    },\n}"
+                "defaultValue": "{\n    args: {\n        label: 'Danger',\n        severity: 'danger',\n        size: 'small',\n        type: 'button'\n    },\n}"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args) => ({\n    props: { ...args, control: new FormControl({ value: 'Disabled text', disabled: true }) },\n    template: `<lib-input-text [formControl]=\"control\" [label]=\"label\" [fieldStyle]=\"fieldStyle\" />`\n  }),\n  args: {\n    label: 'Invalid field',\n    fieldStyle: 'secondary'\n},\n}"
             },
             {
                 "name": "meta",
@@ -28,7 +38,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Button>",
-                "defaultValue": "{\n    title: 'Components/Button',\n    component: Button,\n    tags: ['autodocs'],\n    parameters: {\n        actions: { argTypesRegex: '^on.*|^handle.*' },\n    },\n    args: {\n        label: 'Button'\n    },\n    argTypes: {\n        severity: {\n            control: 'select',\n            options: ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success'],\n        },\n        size: {\n            control: 'select',\n            options: ['small', 'large'],\n        },\n    },\n}"
+                "defaultValue": "{\n    title: 'Components/Button',\n    component: Button,\n    tags: ['autodocs'],\n    parameters: {\n        actions: { argTypesRegex: '^on.*|^handle.*' },\n    },\n    args: {\n        label: 'Button'\n    },\n    argTypes: {\n        type: {\n            control: 'select',\n            options: ['button', 'submit', 'reset'],\n        },\n        severity: {\n            control: 'select',\n            options: ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success'],\n        },\n        size: {\n            control: 'select',\n            options: ['small', 'large'],\n        },\n    },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputText>",
+                "defaultValue": "{\n    title: 'Components/InputText',\n    component: InputText,\n    tags: ['autodocs'],\n    decorators: [\n        moduleMetadata({\n            imports: [ReactiveFormsModule],\n        }),\n    ],\n    parameters: {\n        actions: { argTypesRegex: '^on.*|^handle.*' },\n    },\n    args: {\n        label: 'Input Text',\n        placeholder: '',\n        id: `input-${Math.random().toString(36).substring(2, 9)}`,\n    },\n    argTypes: {\n        fieldType: {\n            control: 'select',\n            options: ['text', 'textarea', 'password', 'email', 'number', 'search', 'tel', 'url'],\n        },\n        fieldStyle: {\n            control: 'select',\n            options: ['primary', 'secondary', 'outline'],\n        },\n    },\n}"
+            },
+            {
+                "name": "Outline",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n    args: {\n        label: 'Outline',\n        placeholder: 'Enter outline text here',\n        fieldStyle: 'outline'\n    },\n}"
             },
             {
                 "name": "preview",
@@ -48,7 +78,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        label: 'Primary',\n        severity: 'primary',\n        size: 'small',\n    },\n}"
+                "defaultValue": "{\n    args: {\n        label: 'Primary',\n        severity: 'primary',\n        size: 'small',\n        type: 'button'\n    },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n    args: {\n        label: 'Primary',\n        placeholder: 'Enter text here',\n        fieldStyle: 'primary'\n    },\n}"
             },
             {
                 "name": "Secondary",
@@ -58,7 +98,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        label: 'Secondary',\n        severity: 'secondary',\n        size: 'small',\n    },\n}"
+                "defaultValue": "{\n    args: {\n        label: 'Secondary',\n        severity: 'secondary',\n        size: 'small',\n        type: 'button'\n    },\n}"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n    args: {\n        label: 'Secondary',\n        placeholder: 'Enter secondary text here',\n        fieldStyle: 'secondary'\n    },\n}"
             },
             {
                 "name": "Success",
@@ -68,7 +118,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        label: 'Success',\n        severity: 'success',\n        size: 'small',\n    },\n}"
+                "defaultValue": "{\n    args: {\n        label: 'Success',\n        severity: 'success',\n        size: 'small',\n        type: 'button'\n    },\n}"
             },
             {
                 "name": "Tertiary",
@@ -78,7 +128,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        label: 'Tertiary',\n        severity: 'tertiary',\n        size: 'small',\n    },\n}"
+                "defaultValue": "{\n    args: {\n        label: 'Tertiary',\n        severity: 'tertiary',\n        size: 'small',\n        type: 'button'\n    },\n}"
             },
             {
                 "name": "Warning",
@@ -88,7 +138,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        label: 'Warning',\n        severity: 'warning',\n        size: 'small',\n    },\n}"
+                "defaultValue": "{\n    args: {\n        label: 'Warning',\n        severity: 'warning',\n        size: 'small',\n        type: 'button'\n    },\n}"
+            },
+            {
+                "name": "WithValidation",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n    render: (args) => {\n        const control = new FormControl('', [Validators.required, Validators.minLength(5)]);\n        control.markAsTouched();\n\n        return {\n            props: {\n                ...args,\n                control: control\n            },\n            template: `<lib-input-text [formControl]=\"control\" [label]=\"label\" [fieldStyle]=\"fieldStyle\" />\n            `,\n        };\n    },\n    args: {\n        label: 'Primary',\n        placeholder: 'Enter text here',\n        fieldStyle: 'primary'\n    },\n}"
             }
         ],
         "functions": [],
@@ -99,6 +159,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<Button>",
                 "file": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<InputText>",
+                "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -116,7 +187,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        label: 'Danger',\n        severity: 'danger',\n        size: 'small',\n    },\n}"
+                    "defaultValue": "{\n    args: {\n        label: 'Danger',\n        severity: 'danger',\n        size: 'small',\n        type: 'button'\n    },\n}"
                 },
                 {
                     "name": "meta",
@@ -126,7 +197,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Button>",
-                    "defaultValue": "{\n    title: 'Components/Button',\n    component: Button,\n    tags: ['autodocs'],\n    parameters: {\n        actions: { argTypesRegex: '^on.*|^handle.*' },\n    },\n    args: {\n        label: 'Button'\n    },\n    argTypes: {\n        severity: {\n            control: 'select',\n            options: ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success'],\n        },\n        size: {\n            control: 'select',\n            options: ['small', 'large'],\n        },\n    },\n}"
+                    "defaultValue": "{\n    title: 'Components/Button',\n    component: Button,\n    tags: ['autodocs'],\n    parameters: {\n        actions: { argTypesRegex: '^on.*|^handle.*' },\n    },\n    args: {\n        label: 'Button'\n    },\n    argTypes: {\n        type: {\n            control: 'select',\n            options: ['button', 'submit', 'reset'],\n        },\n        severity: {\n            control: 'select',\n            options: ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'success'],\n        },\n        size: {\n            control: 'select',\n            options: ['small', 'large'],\n        },\n    },\n}"
                 },
                 {
                     "name": "Primary",
@@ -136,7 +207,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        label: 'Primary',\n        severity: 'primary',\n        size: 'small',\n    },\n}"
+                    "defaultValue": "{\n    args: {\n        label: 'Primary',\n        severity: 'primary',\n        size: 'small',\n        type: 'button'\n    },\n}"
                 },
                 {
                     "name": "Secondary",
@@ -146,7 +217,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        label: 'Secondary',\n        severity: 'secondary',\n        size: 'small',\n    },\n}"
+                    "defaultValue": "{\n    args: {\n        label: 'Secondary',\n        severity: 'secondary',\n        size: 'small',\n        type: 'button'\n    },\n}"
                 },
                 {
                     "name": "Success",
@@ -156,7 +227,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        label: 'Success',\n        severity: 'success',\n        size: 'small',\n    },\n}"
+                    "defaultValue": "{\n    args: {\n        label: 'Success',\n        severity: 'success',\n        size: 'small',\n        type: 'button'\n    },\n}"
                 },
                 {
                     "name": "Tertiary",
@@ -166,7 +237,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        label: 'Tertiary',\n        severity: 'tertiary',\n        size: 'small',\n    },\n}"
+                    "defaultValue": "{\n    args: {\n        label: 'Tertiary',\n        severity: 'tertiary',\n        size: 'small',\n        type: 'button'\n    },\n}"
                 },
                 {
                     "name": "Warning",
@@ -176,7 +247,69 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        label: 'Warning',\n        severity: 'warning',\n        size: 'small',\n    },\n}"
+                    "defaultValue": "{\n    args: {\n        label: 'Warning',\n        severity: 'warning',\n        size: 'small',\n        type: 'button'\n    },\n}"
+                }
+            ],
+            "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts": [
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: (args) => ({\n    props: { ...args, control: new FormControl({ value: 'Disabled text', disabled: true }) },\n    template: `<lib-input-text [formControl]=\"control\" [label]=\"label\" [fieldStyle]=\"fieldStyle\" />`\n  }),\n  args: {\n    label: 'Invalid field',\n    fieldStyle: 'secondary'\n},\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputText>",
+                    "defaultValue": "{\n    title: 'Components/InputText',\n    component: InputText,\n    tags: ['autodocs'],\n    decorators: [\n        moduleMetadata({\n            imports: [ReactiveFormsModule],\n        }),\n    ],\n    parameters: {\n        actions: { argTypesRegex: '^on.*|^handle.*' },\n    },\n    args: {\n        label: 'Input Text',\n        placeholder: '',\n        id: `input-${Math.random().toString(36).substring(2, 9)}`,\n    },\n    argTypes: {\n        fieldType: {\n            control: 'select',\n            options: ['text', 'textarea', 'password', 'email', 'number', 'search', 'tel', 'url'],\n        },\n        fieldStyle: {\n            control: 'select',\n            options: ['primary', 'secondary', 'outline'],\n        },\n    },\n}"
+                },
+                {
+                    "name": "Outline",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n    args: {\n        label: 'Outline',\n        placeholder: 'Enter outline text here',\n        fieldStyle: 'outline'\n    },\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n    args: {\n        label: 'Primary',\n        placeholder: 'Enter text here',\n        fieldStyle: 'primary'\n    },\n}"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n    args: {\n        label: 'Secondary',\n        placeholder: 'Enter secondary text here',\n        fieldStyle: 'secondary'\n    },\n}"
+                },
+                {
+                    "name": "WithValidation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n    render: (args) => {\n        const control = new FormControl('', [Validators.required, Validators.minLength(5)]);\n        control.markAsTouched();\n\n        return {\n            props: {\n                ...args,\n                control: control\n            },\n            template: `<lib-input-text [formControl]=\"control\" [label]=\"label\" [fieldStyle]=\"fieldStyle\" />\n            `,\n        };\n    },\n    args: {\n        label: 'Primary',\n        placeholder: 'Enter text here',\n        fieldStyle: 'primary'\n    },\n}"
                 }
             ],
             "projects/ngx-manu-ui-library/.storybook/preview.ts": [
@@ -202,6 +335,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Button>",
                     "file": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputText>",
+                    "file": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -301,6 +447,76 @@
             },
             {
                 "filePath": "projects/ngx-manu-ui-library/src/lib/components/button/button.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Outline",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithValidation",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-manu-ui-library/src/lib/components/input-text/input-text.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

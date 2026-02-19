@@ -1,36 +1,61 @@
-import { Component, input } from '@angular/core';
-import { ControlValueAccessor, FormsModule } from '@angular/forms';
-import { CUSTOM_CONTROL_VALUE_ACCESSOR } from '@utils';
+import { Component, inject, input, signal } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NgControl } from '@angular/forms';
 
 type OnChangeFn = (value: string) => void;
 type OnTouchedFn = () => void;
 type InputType = 'text' | 'textarea' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url';
+type FieldStyle = 'primary' | 'secondary' | 'outline';
 
 @Component({
     selector: 'lib-input-text',
     imports: [FormsModule],
     templateUrl: './input-text.html',
     styleUrl: './input-text.css',
-    providers: [CUSTOM_CONTROL_VALUE_ACCESSOR(InputText)]
 })
 export class InputText implements ControlValueAccessor {
+
+    private static nextId = 0;
+
+    id = input<string>(`input-${InputText.nextId++}`);
     label = input<string>('');
     placeholder = input<string>('');
     fieldType = input<InputType>('text');
-    id = input<string>(`input-${Math.random().toString(36).substring(2, 9)}`);
+    fieldStyle = input<FieldStyle>('primary');
 
-    value = '';
-    disabled = false;
+    value = signal<string>('');
+    disabled = signal<boolean>(false);
 
-    onChange: OnChangeFn = () => {
+
+    public ngControl = inject(NgControl, { self: true, optional: true });
+
+    constructor() {
+        if (this.ngControl) {
+            this.ngControl.valueAccessor = this;
+        }
+    }
+
+    get isInvalid(): boolean {
+        const control = this.ngControl;
+
+        return !!(control?.invalid && (control.touched || control.dirty));
+    }
+
+    get errorMessages(): string[] {
+        const errors = this.ngControl?.errors;
+
+        return errors ? Object.keys(errors) : [];
+    }
+
+    private onChange: OnChangeFn = () => {
         // no-op
     };
-    onTouched: OnTouchedFn = () => {
+
+    private onTouched: OnTouchedFn = () => {
         // no-op
     };
 
     writeValue(value: string | null): void {
-        this.value = value || '';
+        this.value.set(value || '');
     }
 
     registerOnChange(fn: OnChangeFn): void {
@@ -42,13 +67,13 @@ export class InputText implements ControlValueAccessor {
     }
 
     setDisabledState(isDisabled: boolean): void {
-        this.disabled = isDisabled;
+        this.disabled.set(isDisabled);
     }
 
     onInputChange(event: Event): void {
-        const input = event.target as HTMLInputElement;
-        this.value = input.value;
-        this.onChange(this.value);
+        const newValue = (event.target as HTMLInputElement).value;
+        this.value.set(newValue);
+        this.onChange(newValue);
     }
 
     onBlur(): void {

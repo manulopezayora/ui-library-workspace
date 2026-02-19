@@ -13,18 +13,34 @@ label {
 
 .input-field {
     padding: 8px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 4px;
     outline: none;
     transition: border-color 0.2s;
-}
-
-.input-field:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
 .input-field:disabled {
     background-color: #f3f4f6;
     cursor: not-allowed;
+}
+
+.primary {
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+}
+
+.secondary {
+    border: none;
+    border-bottom: 1px solid #d1d5db;
+    border-radius: 0;
+}
+
+.outline {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px #d1d5db;
+}
+
+.is-invalid, .error-text {
+    color: #ef4444;
+    border-color: #ef4444;
 }

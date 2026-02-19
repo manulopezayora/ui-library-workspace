@@ -1,11 +1,26 @@
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { InputText } from './input-text';
 
+@Component({
+    standalone: true,
+    imports: [ReactiveFormsModule, InputText],
+    template: `
+    <form>
+      <lib-input-text [formControl]="control" label="Email"></lib-input-text>
+    </form>
+  `
+})
+class HostComponent {
+    control = new FormControl('', { validators: [Validators.required] });
+}
+
 describe('InputText', () => {
-    let component: InputText;
     let fixture: ComponentFixture<InputText>;
+    let component: InputText;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -14,7 +29,6 @@ describe('InputText', () => {
 
         fixture = TestBed.createComponent(InputText);
         component = fixture.componentInstance;
-        await fixture.whenStable();
         fixture.detectChanges();
     });
 
@@ -22,76 +36,30 @@ describe('InputText', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should print <label> element', () => {
-        fixture.componentRef.setInput('label', 'Test Input');
+    it('should have default values', () => {
+        expect(component.value()).toBe('');
+        expect(component.disabled()).toBe(false);
+        expect(component.fieldType()).toBe('text');
+        expect(component.fieldStyle()).toBe('primary');
+    });
+
+    it('should update value signal on input', () => {
+        const input = fixture.debugElement.query(By.css('input')).nativeElement as HTMLInputElement;
+
+        input.value = 'hello';
+        input.dispatchEvent(new Event('input'));
         fixture.detectChanges();
 
-        const labelElement = fixture.nativeElement.querySelector('label');
-
-        expect(labelElement).toBeTruthy();
-        expect(labelElement.textContent).toBe('Test Input');
+        expect(component.value()).toBe('hello');
     });
 
-    it('should have default input values', () => {
-        expect(component.label()).toBe('');
-        expect(component.placeholder()).toBe('');
-        expect(component.fieldType()).toBe('text');
-        expect(component.id()).toContain('input-');
+    it('should update value when writeValue is called', () => {
+        component.writeValue('abc');
+
+        expect(component.value()).toBe('abc');
     });
 
-    it('should write value via ControlValueAccessor', () => {
-        component.writeValue('hello');
-        expect(component.value).toBe('hello');
-
-        component.writeValue(null);
-        expect(component.value).toBe('');
-    });
-
-    it('should register and call onChange on input event', () => {
-        const onChange = vi.fn();
-        component.registerOnChange(onChange);
-
-        const inputEl = fixture.debugElement.query(By.css('input'));
-        inputEl.nativeElement.value = 'new value';
-        inputEl.triggerEventHandler('input', {
-            target: inputEl.nativeElement
-        });
-
-        expect(component.value).toBe('new value');
-        expect(onChange).toHaveBeenCalledWith('new value');
-    });
-
-    it('should register and call onTouched on blur', () => {
-        const onTouched = vi.fn();
-        component.registerOnTouched(onTouched);
-
-        const inputEl = fixture.debugElement.query(By.css('input'));
-        inputEl.triggerEventHandler('blur');
-
-        expect(onTouched).toHaveBeenCalled();
-    });
-
-    it('should set disabled state', () => {
-        component.setDisabledState(true);
-        expect(component.disabled).toBe(true);
-
-        component.setDisabledState(false);
-        expect(component.disabled).toBe(false);
-    });
-
-    it('should update value using onInputChange()', () => {
-        const onChange = vi.fn();
-        component.registerOnChange(onChange);
-
-        component.onInputChange({
-            target: { value: 'typed text' }
-        } as unknown as Event);
-
-        expect(component.value).toBe('typed text');
-        expect(onChange).toHaveBeenCalledWith('typed text');
-    });
-
-    it('should call onTouched using onBlur()', () => {
+    it('should mark as touched on blur', () => {
         const onTouched = vi.fn();
         component.registerOnTouched(onTouched);
 
@@ -100,13 +68,69 @@ describe('InputText', () => {
         expect(onTouched).toHaveBeenCalled();
     });
 
-    it('should allow setting signal inputs dynamically', () => {
-        fixture.componentRef.setInput('label', 'Email');
-        fixture.componentRef.setInput('placeholder', 'Enter email');
-        fixture.componentRef.setInput('fieldType', 'email');
+    it('should update disabled state', () => {
+        component.setDisabledState(true);
+        expect(component.disabled()).toBe(true);
+    });
+});
 
-        expect(component.label()).toBe('Email');
-        expect(component.placeholder()).toBe('Enter email');
-        expect(component.fieldType()).toBe('email');
+describe('InputText (with FormControl)', () => {
+    let fixture: ComponentFixture<HostComponent>;
+    let host: HostComponent;
+
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [HostComponent]
+        }).compileComponents();
+
+        fixture = TestBed.createComponent(HostComponent);
+        host = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should sync value from FormControl to component', () => {
+        host.control.setValue('test@example.com');
+        fixture.detectChanges();
+
+        const input = fixture.debugElement.query(By.css('input')).nativeElement;
+
+        expect(input.value).toBe('test@example.com');
+    });
+
+    it('should sync value from component to FormControl', () => {
+        const inputEl = fixture.debugElement.query(By.css('input'));
+        const input = inputEl.nativeElement as HTMLInputElement;
+
+        input.value = 'new value';
+        input.dispatchEvent(new Event('input'));
+        fixture.detectChanges();
+
+        expect(host.control.value).toBe('new value');
+    });
+
+    it('should mark control as touched on blur', () => {
+        const inputEl = fixture.debugElement.query(By.css('input'));
+        inputEl.nativeElement.dispatchEvent(new Event('blur'));
+        fixture.detectChanges();
+
+        expect(host.control.touched).toBe(true);
+    });
+
+    it('should show validation error when invalid and touched', () => {
+        host.control.markAsTouched();
+        fixture.detectChanges();
+
+        const error = fixture.debugElement.query(By.css('.error-text'));
+
+        expect(error).toBeTruthy();
+    });
+
+    it('should disable input when FormControl is disabled', () => {
+        host.control.disable();
+        fixture.detectChanges();
+
+        const input = fixture.debugElement.query(By.css('input')).nativeElement;
+
+        expect(input.disabled).toBe(true);
     });
 });
