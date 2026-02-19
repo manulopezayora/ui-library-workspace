@@ -1,6 +1,6 @@
 <div class="input-container">
     @if (label()) {
-        <label [class.error-text]="isInvalid" [for]="id()">{{ label() }}</label>
+        <label [class.is-invalid]="isInvalid" [for]="id()">{{ label() }}</label>
     }
 
     <input
