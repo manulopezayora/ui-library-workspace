@@ -1,0 +1,107 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: "Inter", system-ui, sans-serif;
+    position: relative;
+    padding-bottom: 20px;
+    height: 38px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    transition: color 0.2s;
+}
+
+label.is-invalid {
+    color: #ef4444;
+}
+
+.input-field {
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #1f2937;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primary {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+}
+
+.primary:hover {
+    border-color: #3b82f6;
+}
+
+.secondary {
+    border: none;
+    border-bottom: 1px solid #d1d5db;
+    border-radius: 0;
+}
+
+.outline {
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.disabled {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.is-invalid {
+    border-color: #ef4444;
+}
+
+.error-text {
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    color: #ef4444;
+}
+
+.select-panel {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    animation: panelFade 140ms ease-out;
+    min-width: 100%;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.select-option {
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.select-option:hover {
+    background: #f3f4f6;
+}
+
+.select-option.active {
+    background: #e0f2fe;
+}
+
+.select-option.selected {
+    font-weight: 600;
+}
+
+@keyframes panelFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
