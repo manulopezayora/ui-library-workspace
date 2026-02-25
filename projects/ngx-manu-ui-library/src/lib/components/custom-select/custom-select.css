@@ -5,7 +5,6 @@
     font-family: "Inter", system-ui, sans-serif;
     position: relative;
     padding-bottom: 20px;
-    height: 38px;
 }
 
 label {
@@ -26,6 +25,7 @@ label.is-invalid {
     background-color: #ffffff;
     color: #1f2937;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 16px;
 }
 
 .primary {
